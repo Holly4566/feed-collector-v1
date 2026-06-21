@@ -529,8 +529,58 @@ body::before {
   gap: 10px;
   justify-content: flex-end;
 }
+.full-content-actions .hidden {
+  display: none !important;
+}
+
+.unsaved-edit-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 2200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+.unsaved-edit-confirm-overlay.hidden { display: none; }
+.unsaved-edit-confirm-sheet {
+  background: #fff;
+  border-radius: 20px;
+  width: min(90vw, 360px);
+  padding: 20px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.18);
+}
+.unsaved-edit-confirm-sheet h3 {
+  font-size: 18px;
+  margin: 0 0 10px;
+  color: var(--text);
+}
+.unsaved-edit-confirm-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-light);
+  margin: 0 0 16px;
+}
+.unsaved-edit-confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
 
 .collection-empty { text-align: center; padding: 24px 0; color: #bbb; font-size: 13px; }
+.granary-backup-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.granary-backup-btn {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
 
 /* ========== Merge Modal ========== */
 .merge-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 2100; display: flex; align-items: center; justify-content: center; animation: fadeIn 0.3s; }
@@ -861,6 +911,187 @@ body::before {
   min-width: fit-content;
   padding: 10px 16px;
   font-size: 14px;
+}
+
+/* ========== Digest Note Modal ========== */
+.digest-note-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: fadeIn 0.2s;
+}
+.digest-note-overlay.hidden { display: none; }
+.digest-note-sheet {
+  background: #fff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+  animation: slideUp 0.25s ease-out;
+}
+.digest-note-sheet h3 {
+  font-size: 17px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.digest-note-hint {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.digest-note-textarea {
+  width: 100%;
+  min-height: 110px;
+  resize: vertical;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.6;
+  outline: none;
+}
+.digest-note-textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(108,92,231,0.1);
+}
+.digest-note-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+/* ========== Eliminate Confirm Modal ========== */
+.eliminate-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: fadeIn 0.2s;
+}
+.eliminate-confirm-overlay.hidden { display: none; }
+.eliminate-confirm-sheet {
+  background: #fff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+  animation: slideUp 0.25s ease-out;
+}
+.eliminate-confirm-sheet h3 {
+  font-size: 17px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.eliminate-confirm-text {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 14px;
+  text-align: center;
+}
+.eliminate-confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ========== Clear All Confirm Modal ========== */
+.clear-all-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: fadeIn 0.2s;
+}
+.clear-all-confirm-overlay.hidden { display: none; }
+.clear-all-confirm-sheet {
+  background: #fff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+  animation: slideUp 0.25s ease-out;
+}
+.clear-all-confirm-sheet h3 {
+  font-size: 17px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.clear-all-confirm-text {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+.clear-all-confirm-text p { margin: 4px 0; }
+.clear-all-confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ========== Delete Collection Confirm Modal ========== */
+.delete-collection-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: fadeIn 0.2s;
+}
+.delete-collection-confirm-overlay.hidden { display: none; }
+.delete-collection-confirm-sheet {
+  background: #fff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+  animation: slideUp 0.25s ease-out;
+}
+.delete-collection-confirm-sheet h3 {
+  font-size: 17px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.delete-collection-confirm-text {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 14px;
+  text-align: center;
+}
+.delete-collection-confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 /* ========== Full-screen Collection Celebration ========== */
@@ -1275,6 +1506,18 @@ body::before {
   </div>
 </div>
 
+<!-- Unsaved Edit Confirm Modal -->
+<div class="unsaved-edit-confirm-overlay hidden" id="unsavedEditConfirmOverlay" onclick="if(event.target===this)closeUnsavedEditConfirmModal()">
+  <div class="unsaved-edit-confirm-sheet" role="dialog" aria-modal="true" aria-labelledby="unsavedEditConfirmTitle">
+    <h3 id="unsavedEditConfirmTitle">⚠️ 有未保存的修改</h3>
+    <p class="unsaved-edit-confirm-text">关闭后，本次编辑内容不会保存。</p>
+    <div class="unsaved-edit-confirm-actions">
+      <button class="btn btn-secondary" onclick="closeUnsavedEditConfirmModal()">继续编辑</button>
+      <button class="btn btn-primary" onclick="discardFullEditAndClose()">放弃修改</button>
+    </div>
+  </div>
+</div>
+
 <!-- ==================== Tab 1: 投喂 ==================== -->
 <div class="tab-view active" id="tabFeed">
 <div class="container">
@@ -1347,18 +1590,6 @@ body::before {
     <div class="card-title">
       🛖 我的粮仓
       <span style="font-size:12px;color:var(--text-light);margin-left:auto;" id="listCount"></span>
-      <button type="button" id="btnExportBackup" style="
-        background:none;border:1px solid var(--border);color:var(--text-light);font-size:12px;
-        cursor:pointer;padding:4px 8px;border-radius:6px;margin-left:8px;
-        font-family:inherit;transition:all 0.15s;
-        display:inline-flex;align-items:center;gap:4px;
-      " onmouseover="this.style.color='var(--accent)';this.style.background='var(--card2)'" onmouseout="this.style.color='var(--text-light)';this.style.background='none'">导出备份</button>
-      <button type="button" id="btnImportBackup" style="
-        background:none;border:1px solid var(--border);color:var(--text-light);font-size:12px;
-        cursor:pointer;padding:4px 8px;border-radius:6px;margin-left:4px;
-        font-family:inherit;transition:all 0.15s;
-        display:inline-flex;align-items:center;gap:4px;
-      " onmouseover="this.style.color='var(--accent)';this.style.background='var(--card2)'" onmouseout="this.style.color='var(--text-light)';this.style.background='none'">导入备份</button>
       <input type="file" id="backupFileInput" accept="application/json,.json" style="display:none;">
       <button onclick="handleClearAll()" style="
         background:none;border:none;color:var(--text-light);font-size:12px;
@@ -1370,6 +1601,20 @@ body::before {
     <div class="collection-list" id="collectionList"></div>
     <div class="collection-empty" id="collectionEmpty" style="display:none;">
       空空如也~
+    </div>
+    <div class="granary-backup-actions">
+      <button type="button" id="btnExportBackup" class="granary-backup-btn" style="
+        background:none;border:1px solid var(--border);color:var(--text-light);font-size:12px;
+        cursor:pointer;padding:4px 8px;border-radius:6px;margin-left:8px;
+        font-family:inherit;transition:all 0.15s;
+        display:inline-flex;align-items:center;gap:4px;
+      " onmouseover="this.style.color='var(--accent)';this.style.background='var(--card2)'" onmouseout="this.style.color='var(--text-light)';this.style.background='none'">导出备份</button>
+      <button type="button" id="btnImportBackup" class="granary-backup-btn" style="
+        background:none;border:1px solid var(--border);color:var(--text-light);font-size:12px;
+        cursor:pointer;padding:4px 8px;border-radius:6px;margin-left:4px;
+        font-family:inherit;transition:all 0.15s;
+        display:inline-flex;align-items:center;gap:4px;
+      " onmouseover="this.style.color='var(--accent)';this.style.background='var(--card2)'" onmouseout="this.style.color='var(--text-light)';this.style.background='none'">导入备份</button>
     </div>
   </div>
 </div>
@@ -1444,6 +1689,59 @@ body::before {
   <div class="detail-sheet" id="detailSheet">
     <div class="detail-handle"></div>
     <div id="detailContent"></div>
+  </div>
+</div>
+
+<!-- Digest Note Modal -->
+<div class="digest-note-overlay hidden" id="digestNoteOverlay" onclick="if(event.target===this)cancelDigestNote()">
+  <div class="digest-note-sheet" role="dialog" aria-modal="true" aria-labelledby="digestNoteTitle">
+    <h3 id="digestNoteTitle">📝 记录一下你消化到了什么</h3>
+    <p class="digest-note-hint">可留空，点确认继续孵化；点取消放弃本次消化。</p>
+    <textarea class="digest-note-textarea" id="digestNoteInput" rows="4" placeholder="写下一句话，也可以留空"></textarea>
+    <div class="digest-note-actions">
+      <button type="button" class="btn btn-secondary" onclick="cancelDigestNote()">取消</button>
+      <button type="button" class="btn btn-primary" id="btnConfirmDigestNote" onclick="confirmDigestNote()">确认开孵</button>
+    </div>
+  </div>
+</div>
+
+<!-- Eliminate Confirm Modal -->
+<div class="eliminate-confirm-overlay hidden" id="eliminateConfirmOverlay" onclick="if(event.target===this)closeEliminateConfirmModal()">
+  <div class="eliminate-confirm-sheet" role="dialog" aria-modal="true" aria-labelledby="eliminateConfirmTitle">
+    <h3 id="eliminateConfirmTitle">🔥 批量消除重复卡？</h3>
+    <p class="eliminate-confirm-text" id="eliminateConfirmText"></p>
+    <div class="eliminate-confirm-actions">
+      <button type="button" class="btn btn-secondary" onclick="confirmEliminateThree()">只消除 3 张</button>
+      <button type="button" class="btn btn-primary" id="btnConfirmEliminateBatch" onclick="confirmEliminateBatch()">批量消除</button>
+    </div>
+  </div>
+</div>
+
+<!-- Clear All Confirm Modal -->
+<div class="clear-all-confirm-overlay hidden" id="clearAllConfirmOverlay" onclick="if(event.target===this)closeClearAllConfirmModal()">
+  <div class="clear-all-confirm-sheet" role="dialog" aria-modal="true" aria-labelledby="clearAllConfirmTitle">
+    <h3 id="clearAllConfirmTitle">🗑️ 清空粮仓？</h3>
+    <div class="clear-all-confirm-text">
+      <p>所有收藏内容将被删除。</p>
+      <p>已孵化的生物会保留。</p>
+      <p>此操作不可撤销。</p>
+    </div>
+    <div class="clear-all-confirm-actions">
+      <button type="button" class="btn btn-secondary" onclick="closeClearAllConfirmModal()">取消</button>
+      <button type="button" class="btn btn-danger" onclick="confirmClearAllCollections()">确认清空</button>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Collection Confirm Modal -->
+<div class="delete-collection-confirm-overlay hidden" id="deleteCollectionConfirmOverlay" onclick="if(event.target===this)closeDeleteCollectionConfirmModal()">
+  <div class="delete-collection-confirm-sheet" role="dialog" aria-modal="true" aria-labelledby="deleteCollectionConfirmTitle">
+    <h3 id="deleteCollectionConfirmTitle">🗑️ 删除这条收藏？</h3>
+    <p class="delete-collection-confirm-text">删除后无法恢复，但已孵化的生物不会受影响。</p>
+    <div class="delete-collection-confirm-actions">
+      <button type="button" class="btn btn-secondary" onclick="closeDeleteCollectionConfirmModal()">取消</button>
+      <button type="button" class="btn btn-danger" onclick="confirmDeleteCollection()">确认删除</button>
+    </div>
   </div>
 </div>
 
@@ -1770,7 +2068,7 @@ function showFullContent(feedId) {
 
   body.innerHTML = `
     <div class="feed-title">${escapeHtml(feed.title)}</div>
-    ${feed.url ? `<div class="feed-url" onclick="copyToClipboard('${escapeAttr(feed.url)}')" title="点击复制链接">🔗 ${escapeHtml(feed.url)}</div>` : ''}
+    ${feed.url ? `<div class="feed-url" onclick="copyToClipboard(${jsArg(feed.url)})" title="点击复制链接">🔗 ${escapeHtml(feed.url)}</div>` : ''}
     <div class="feed-content">${escapeHtml(feed.content || '')}</div>
   `;
 
@@ -1825,9 +2123,27 @@ function closeFullContent() {
     const feed = state.collections.find(c => c.id === _fullEditFeedId);
     const textarea = document.getElementById('fullEditTextarea');
     if (feed && textarea && textarea.value !== (feed.content || '')) {
-      if (!confirm('有未保存的修改，确定要关闭吗？')) return;
+      openUnsavedEditConfirmModal();
+      return;
     }
   }
+  performCloseFullContent();
+}
+
+function openUnsavedEditConfirmModal() {
+  document.getElementById('unsavedEditConfirmOverlay').classList.remove('hidden');
+}
+
+function closeUnsavedEditConfirmModal() {
+  document.getElementById('unsavedEditConfirmOverlay').classList.add('hidden');
+}
+
+function discardFullEditAndClose() {
+  closeUnsavedEditConfirmModal();
+  performCloseFullContent();
+}
+
+function performCloseFullContent() {
   const modal = document.getElementById('fullContentModal');
   _fullEditFeedId = null;
   _fullEditing = false;
@@ -2236,13 +2552,13 @@ function renderFeeding() {
   container.innerHTML = `
     <span class="feed-platform ${platform}">${getPlatformName(platform)}</span>
     <div class="feed-title">${escapeHtml(feed.title)}</div>
-    ${feed.url ? `<div class="feed-url" onclick="copyToClipboard('${escapeAttr(feed.url)}')" title="点击复制链接">🔗 ${escapeHtml(feed.url)}</div>` : ''}
+    ${feed.url ? `<div class="feed-url" onclick="copyToClipboard(${jsArg(feed.url)})" title="点击复制链接">🔗 ${escapeHtml(feed.url)}</div>` : ''}
     ${feed.content ? `<div class="feed-content">${escapeHtml(feed.content)}</div>` : ''}
     ${(feed.url || feed.content) ? `
       <div class="feed-tool-actions">
         ${feed.url ? `<button class="feed-tool-btn" onclick="openFeedUrl('${feed.id}')">🔗 打开</button>` : ''}
-        ${feed.url ? `<button class="feed-tool-btn" onclick="event.stopPropagation();copyToClipboard('${escapeAttr(feed.url)}')" title="复制链接">🔗 复制</button>` : ''}
-        ${feed.content ? `<button class="feed-tool-btn" onclick="event.stopPropagation();copyToClipboard('${escapeAttr(feed.content)}', '📋 正文已复制！')" title="复制正文">📋 复制</button>` : ''}
+        ${feed.url ? `<button class="feed-tool-btn" onclick="event.stopPropagation();copyToClipboard(${jsArg(feed.url)})" title="复制链接">🔗 复制</button>` : ''}
+        ${feed.content ? `<button class="feed-tool-btn" onclick="event.stopPropagation();copyToClipboard(${jsArg(feed.content)}, ${jsArg('📋 正文已复制！')})" title="复制正文">📋 复制</button>` : ''}
         ${feed.content ? `<button class="feed-tool-btn" onclick="event.stopPropagation();showFullContent('${feed.id}')" title="显示全文">📖 全文</button>` : ''}
       </div>` : ''}
     <div class="feed-meta">
@@ -2304,11 +2620,12 @@ function renderCollectionList() {
     const platform = c.platform || 'other';
     const daysSince = daysAgo(c.addedAt.split('T')[0]);
     const digestNote = typeof c.digestNote === 'string' ? c.digestNote.trim() : '';
+    const cleanUrl = normalizeUrl(c.url);
     return `
       <div class="collection-item ${c.digested ? 'digested' : ''}" onclick="openDetail('${c.id}')" style="cursor:pointer;">
         <span class="ci-platform ${platform}">${getPlatformName(platform)}</span>
         <div class="ci-info">
-          <div class="ci-title">${c.url ? `<a href="${escapeAttr(c.url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:inherit;text-decoration:none;">${escapeHtml(c.title)}</a>` : escapeHtml(c.title)}</div>
+          <div class="ci-title">${cleanUrl ? `<a href="${escapeAttr(cleanUrl)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:inherit;text-decoration:none;">${escapeHtml(c.title)}</a>` : escapeHtml(c.title)}</div>
           ${c.url ? `<div class="ci-url"> ${escapeHtml(c.url)}</div>` : ''}
           ${c.content ? `<div class="ci-content-preview">📝 ${escapeHtml(c.content.slice(0, 50))}${c.content.length > 50 ? '...' : ''}</div>` : ''}
           ${digestNote ? `<div class="ci-content-preview">💡 我的消化：${escapeHtml(digestNote)}</div>` : ''}
@@ -2316,8 +2633,8 @@ function renderCollectionList() {
             ${c.digested ? `✅ 已消化 · ${daysAgo(c.digestedAt.split('T')[0])} 天前` : `⏳ 待消化 · ${daysSince} 天前收藏`}
           </div>
           <div class="ci-copy-btns">
-            ${c.url ? `<button class="btn-copy-sm" onclick="event.stopPropagation();copyToClipboard('${escapeAttr(c.url)}')" title="复制链接">🔗</button>` : ''}
-            ${c.content ? `<button class="btn-copy-sm" onclick="event.stopPropagation();copyToClipboard('${escapeAttr(c.content)}', '📋 正文已复制！')" title="复制正文">📋</button>` : ''}
+            ${c.url ? `<button class="btn-copy-sm" onclick="event.stopPropagation();copyToClipboard(${jsArg(c.url)})" title="复制链接">🔗</button>` : ''}
+            ${c.content ? `<button class="btn-copy-sm" onclick="event.stopPropagation();copyToClipboard(${jsArg(c.content)}, ${jsArg('📋 正文已复制！')})" title="复制正文">📋</button>` : ''}
           </div>
         </div>
         <button class="btn btn-ghost" onclick="event.stopPropagation();deleteCollection('${c.id}')" style="padding:2px 6px;font-size:16px;" title="删除">🗑️</button>
@@ -2335,18 +2652,19 @@ function openDetail(id) {
     ? `✅ 已消化 · ${daysAgo(c.digestedAt.split('T')[0])} 天前`
     : `⏳ 待消化 · ${daysSince} 天前收藏`;
   const digestNote = typeof c.digestNote === 'string' ? c.digestNote.trim() : '';
+  const cleanUrl = normalizeUrl(c.url);
 
   document.getElementById('detailContent').innerHTML = `
     <div style="margin-bottom:12px;">
       <span class="detail-badge ${platform}">${getPlatformName(platform)}</span>
     </div>
     <div class="detail-title">
-      ${c.url
-        ? `<a href="${escapeAttr(c.url)}" target="_blank" rel="noopener">${escapeHtml(c.title)}</a>`
+      ${cleanUrl
+        ? `<a href="${escapeAttr(cleanUrl)}" target="_blank" rel="noopener">${escapeHtml(c.title)}</a>`
         : escapeHtml(c.title)}
     </div>
     ${c.url
-      ? `<div class="detail-url"> <a href="${escapeAttr(c.url)}" target="_blank" rel="noopener">${escapeHtml(c.url)}</a></div>`
+      ? `<div class="detail-url"> ${cleanUrl ? `<a href="${escapeAttr(cleanUrl)}" target="_blank" rel="noopener">${escapeHtml(c.url)}</a>` : escapeHtml(c.url)}</div>`
       : ''}
     <div class="detail-meta">${digestInfo}</div>
     ${digestNote
@@ -2356,12 +2674,12 @@ function openDetail(id) {
       ? `<div class="detail-content">${escapeHtml(c.content)}</div>`
       : '<div class="detail-content" style="color:var(--text-light);font-style:italic;">暂无正文内容</div>'}
     <div class="detail-actions">
-      ${!c.digested ? `<button class="btn btn-primary" onclick="if (handleDigest('${c.id}')) closeDetail()">✅ 已吸收，开孵！</button>` : ''}
+      ${!c.digested ? `<button class="btn btn-primary" onclick="handleDigest('${c.id}', true)">✅ 已吸收，开孵！</button>` : ''}
       ${c.url ? `<button class="btn btn-secondary" onclick="openFeedUrl('${c.id}')">🔗打开</button>` : ''}
-      ${c.url ? `<button class="btn btn-secondary" onclick="copyToClipboard('${escapeAttr(c.url)}');closeDetail()">🔗复制</button>` : ''}
-      ${c.content ? `<button class="btn btn-secondary" onclick="copyToClipboard('${escapeAttr(c.content)}','📋 正文已复制！');closeDetail()">📝复制</button>` : ''}
+      ${c.url ? `<button class="btn btn-secondary" onclick="copyToClipboard(${jsArg(c.url)});closeDetail()">🔗复制</button>` : ''}
+      ${c.content ? `<button class="btn btn-secondary" onclick="copyToClipboard(${jsArg(c.content)},${jsArg('📋 正文已复制！')});closeDetail()">📝复制</button>` : ''}
       ${c.content ? `<button class="btn btn-secondary" onclick="showFullContent('${c.id}')">📖 全文</button>` : ''}
-      <button class="btn btn-danger" onclick="deleteCollection('${c.id}');closeDetail()">️ 删除</button>
+      <button class="btn btn-danger" onclick="deleteCollection('${c.id}', { closeDetailOnSuccess: true })">️ 删除</button>
     </div>
   `;
   document.getElementById('detailOverlay').classList.remove('hidden');
@@ -2412,7 +2730,7 @@ function renderPokedex() {
           const key = `${s.rarity}_${i}`;
           const count = countMap[key] || 0;
           const isCollected = count > 0;
-          const feedValue = count * 15;
+          const feedValue = (count - 1) * 15;
           const feedLabel = count > 1 ? `<div style="font-size:9px;color:var(--text-light);margin-top:2px;">🫘 +${feedValue}</div>` : '';
           return `
             <div class="pokedex-slot ${isCollected ? 'collected' : ''}" title="${isCollected ? c.name + ': ' + c.desc : '???'}">
@@ -2461,19 +2779,69 @@ function escapeAttr(str) {
   return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+function jsArg(value) {
+  return escapeAttr(JSON.stringify(String(value ?? '')));
+}
+
 // ==================== HATCHING ANIMATION ====================
-function handleDigest(id) {
+let _pendingDigestId = null;
+let _pendingDigestCloseDetail = false;
+
+function handleDigest(id, closeDetailOnSuccess = false) {
   const item = state.collections.find(c => c.id === id);
   if (!item || item.digested) {
     showToast('😅 这条已经消化过了');
     return false;
   }
-  const noteInput = prompt('用一句话记录你消化到了什么。\n可留空，点“确定”继续孵化；点“取消”放弃本次消化。');
-  if (noteInput === null) {
-    showToast('已取消消化');
-    return false;
-  }
-  const digestNote = noteInput.trim();
+  openDigestNoteModal(id, closeDetailOnSuccess);
+  return false;
+}
+
+function openDigestNoteModal(id, closeDetailOnSuccess = false) {
+  _pendingDigestId = id;
+  _pendingDigestCloseDetail = !!closeDetailOnSuccess;
+  const overlay = document.getElementById('digestNoteOverlay');
+  const input = document.getElementById('digestNoteInput');
+  const confirmBtn = document.getElementById('btnConfirmDigestNote');
+  if (input) input.value = '';
+  if (confirmBtn) confirmBtn.disabled = false;
+  if (overlay) overlay.classList.remove('hidden');
+  setTimeout(() => {
+    if (input) input.focus();
+  }, 0);
+}
+
+function closeDigestNoteModal() {
+  const overlay = document.getElementById('digestNoteOverlay');
+  const input = document.getElementById('digestNoteInput');
+  const confirmBtn = document.getElementById('btnConfirmDigestNote');
+  if (overlay) overlay.classList.add('hidden');
+  if (input) input.value = '';
+  if (confirmBtn) confirmBtn.disabled = false;
+}
+
+function cancelDigestNote() {
+  _pendingDigestId = null;
+  _pendingDigestCloseDetail = false;
+  closeDigestNoteModal();
+  showToast('已取消消化');
+}
+
+function confirmDigestNote() {
+  const id = _pendingDigestId;
+  if (!id) return;
+  const closeDetailOnSuccess = _pendingDigestCloseDetail;
+  const input = document.getElementById('digestNoteInput');
+  const confirmBtn = document.getElementById('btnConfirmDigestNote');
+  const digestNote = input ? input.value.trim() : '';
+  _pendingDigestId = null;
+  _pendingDigestCloseDetail = false;
+  if (confirmBtn) confirmBtn.disabled = true;
+  closeDigestNoteModal();
+  completeDigest(id, digestNote, closeDetailOnSuccess);
+}
+
+function completeDigest(id, digestNote, closeDetailOnSuccess = false) {
   const result = digestItem(id, digestNote);
   if (!result) {
     showToast('😅 这条已经消化过了');
@@ -2501,6 +2869,7 @@ function handleDigest(id) {
   }
 
   renderAll();
+  if (closeDetailOnSuccess) closeDetail();
   showHatchAnimation(creature, isDuplicate);
   return true;
 }
@@ -2608,7 +2977,7 @@ function showCreatureCard(creature) {
 
   // 计算累计喂养值
   const feedCount = state.creatures.filter(c => c.key === creature.key).length;
-  const totalFeedValue = feedCount * 15;
+  const totalFeedValue = (feedCount - 1) * 15;
   if (feedCount > 1) {
     repeatEl.style.display = 'block';
     repeatEl.innerHTML = `🫘 累计加餐 +${totalFeedValue}`;
@@ -2678,6 +3047,8 @@ function getEliminateSurplus() {
   return surplus;
 }
 
+let _pendingEliminateBatchCount = 0;
+
 function doEliminate() {
   const surplus = getEliminateSurplus();
   if (surplus.length < 3) {
@@ -2685,9 +3056,58 @@ function doEliminate() {
     return;
   }
 
-  let removeCount = 3;
-  if (surplus.length >= 9 && confirm(`当前有 ${surplus.length} 张可消除重复卡。是否批量消除？取消则只消除 3 张。`)) {
-    removeCount = Math.floor(surplus.length / 3) * 3;
+  if (surplus.length < 9) {
+    performEliminate(3);
+    return;
+  }
+
+  openEliminateConfirmModal(surplus.length);
+}
+
+function openEliminateConfirmModal(surplusCount) {
+  const batchCount = Math.floor(surplusCount / 3) * 3;
+  _pendingEliminateBatchCount = batchCount;
+  const overlay = document.getElementById('eliminateConfirmOverlay');
+  const text = document.getElementById('eliminateConfirmText');
+  const batchBtn = document.getElementById('btnConfirmEliminateBatch');
+  if (text) {
+    text.textContent = `当前有 ${surplusCount} 张可消除重复卡。你可以只消除 3 张，也可以批量消除 ${batchCount} 张。`;
+  }
+  if (batchBtn) batchBtn.textContent = `批量消除 ${batchCount} 张`;
+  if (overlay) overlay.classList.remove('hidden');
+}
+
+function closeEliminateConfirmModal() {
+  _pendingEliminateBatchCount = 0;
+  const overlay = document.getElementById('eliminateConfirmOverlay');
+  if (overlay) overlay.classList.add('hidden');
+}
+
+function confirmEliminateThree() {
+  if (!_pendingEliminateBatchCount) return;
+  closeEliminateConfirmModal();
+  performEliminate(3);
+}
+
+function confirmEliminateBatch() {
+  const batchCount = _pendingEliminateBatchCount;
+  if (!batchCount) return;
+  closeEliminateConfirmModal();
+  performEliminate(batchCount);
+}
+
+function performEliminate(removeCount) {
+  const surplus = getEliminateSurplus();
+  if (surplus.length < 3) {
+    showToast('😭 重复卡片不足3张！快去吸收干货吧~');
+    return;
+  }
+
+  const maxCount = Math.floor(surplus.length / 3) * 3;
+  removeCount = Math.floor(Math.min(removeCount, maxCount) / 3) * 3;
+  if (removeCount < 3) {
+    showToast('😭 重复卡片不足3张！快去吸收干货吧~');
+    return;
   }
 
   // 随机挑多余卡片，抽中后移出池子，避免重复抽同一张
@@ -2995,7 +3415,25 @@ function handleClearAll() {
     showToast(' 粮仓已经是空的了');
     return;
   }
-  if (!confirm('⚠️ 确定要清空粮仓吗？\n所有收藏内容将被删除，已孵化的生物会保留。此操作不可撤销！')) return;
+  openClearAllConfirmModal();
+}
+
+function openClearAllConfirmModal() {
+  const overlay = document.getElementById('clearAllConfirmOverlay');
+  if (overlay) overlay.classList.remove('hidden');
+}
+
+function closeClearAllConfirmModal() {
+  const overlay = document.getElementById('clearAllConfirmOverlay');
+  if (overlay) overlay.classList.add('hidden');
+}
+
+function confirmClearAllCollections() {
+  closeClearAllConfirmModal();
+  performClearAllCollections();
+}
+
+function performClearAllCollections() {
   const backup = {
     collections: state.collections,
     todayFeedId: state.todayFeedId,
@@ -3041,7 +3479,7 @@ function addCollection() {
   const collection = {
     id: genId(),
     title,
-    url: normalizedUrl,
+    url: rawUrl,
     content: contentInput.value.trim(),
     platform: selectedPlatform,
     addedAt: new Date().toISOString(),
@@ -3072,8 +3510,42 @@ function addCollection() {
   showToast('🥚 已加入粮仓！');
 }
 
-function deleteCollection(id) {
-  if (!confirm('确定删除这条收藏吗？')) return;
+let _pendingDeleteCollectionId = null;
+let _pendingDeleteCollectionOptions = null;
+
+function deleteCollection(id, options = {}) {
+  const item = state.collections.find(c => c.id === id);
+  if (!item) return false;
+  openDeleteCollectionConfirmModal(id, options);
+  return false;
+}
+
+function openDeleteCollectionConfirmModal(id, options = {}) {
+  _pendingDeleteCollectionId = id;
+  _pendingDeleteCollectionOptions = options || {};
+  document.getElementById('deleteCollectionConfirmOverlay').classList.remove('hidden');
+}
+
+function closeDeleteCollectionConfirmModal() {
+  _pendingDeleteCollectionId = null;
+  _pendingDeleteCollectionOptions = null;
+  document.getElementById('deleteCollectionConfirmOverlay').classList.add('hidden');
+}
+
+function confirmDeleteCollection() {
+  const id = _pendingDeleteCollectionId;
+  if (!id) return;
+  const options = _pendingDeleteCollectionOptions || {};
+  _pendingDeleteCollectionId = null;
+  _pendingDeleteCollectionOptions = null;
+  document.getElementById('deleteCollectionConfirmOverlay').classList.add('hidden');
+  const deleted = performDeleteCollection(id, options);
+  if (deleted && options.closeDetailOnSuccess) closeDetail();
+}
+
+function performDeleteCollection(id, options = {}) {
+  const item = state.collections.find(c => c.id === id);
+  if (!item) return false;
   const oldCollections = [...state.collections];
   const oldFeedId = state.todayFeedId;
   const oldFeedDate = state.todayFeedDate;
@@ -3091,10 +3563,11 @@ function deleteCollection(id) {
     state.todayFeedDate = oldFeedDate;
     state.skipsUsedToday = oldSkips;
     alert('⚠️ 保存失败！存储空间可能已满，请清理一些收藏后重试。');
-    return;
+    return false;
   }
   renderAll();
   showToast('🗑️ 已删除');
+  return true;
 }
 
 // ==================== EVENT BINDINGS ====================
